@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `<div>
   <h1>upcoming angular events</h1>
   <hr />
-  <event-thumbnail [event]="event1"> </event-thumbnail>
+  <event-thumbnail (eventClick)="handleEventClicked($event)" [event]="event1"> </event-thumbnail>
 </div>
 `
 })
@@ -23,4 +23,8 @@ export class EventlistComponent {
       country: 'Kenya'
     }
   };
+  // data id what is coming from child component
+  handleEventClicked(data){
+console.log('received',data)
+  }
 }
