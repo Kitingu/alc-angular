@@ -1,30 +1,29 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'events-list',
-  template: `<div>
-  <h1>upcoming angular events</h1>
-  <hr />
-  <event-thumbnail (eventClick)="handleEventClicked($event)" [event]="event1"> </event-thumbnail>
-</div>
-`
+    selector: "events-list",
+    template: `
+        <div>
+            <h1>upcoming angular events</h1>
+            <hr />
+            <event-thumbnail #thumbnail [event]="event1"> </event-thumbnail>
+            <h3>{{thumbnail.someProperty}}</h3>
+            <button class="btn btn-primary" (click)="thumbnail.logFoo()"> log me some foo</button>
+        </div>
+    `
 })
 export class EventlistComponent {
-  event1 = {
-    id: 1,
-    name: 'Angular Connect',
-    date: '12/12/2015',
-    time: '11:30pm',
-    price: 5000,
-    imageUrl: '/assets/images/angularconnect-shield.png',
-    location: {
-      address: '12358-kw',
-      city: 'Nairobi',
-      country: 'Kenya'
-    }
-  };
-  // data id what is coming from child component
-  handleEventClicked(data){
-console.log('received',data)
-  }
+    event1 = {
+        id: 1,
+        name: "Angular Connect",
+        date: "12/12/2015",
+        time: "11:30pm",
+        price: 5000,
+        imageUrl: "/assets/images/angularconnect-shield.png",
+        location: {
+            address: "12358-kw",
+            city: "Nairobi",
+            country: "Kenya"
+        }
+    };
 }
